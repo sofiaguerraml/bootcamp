@@ -24,5 +24,9 @@ func main() {
 
 }
 func (e Employee) PrintEmployee() {
-	fmt.Println(e.IdP, e.Name, e.DateOfBirth.Day(), e.DateOfBirth.Month(), e.DateOfBirth.Year(), e.IdE, e.Position)
+	fmt.Println("Id persona:", e.IdP,
+		"\nNombre:", e.Name,
+		"\nFecha de nacimiento:", e.DateOfBirth.Day(), e.DateOfBirth.Month(), e.DateOfBirth.Year(),
+		"\nId empleado:", e.IdE,
+		"\nPosicion:", e.Position)
 }

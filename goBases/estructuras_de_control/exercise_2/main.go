@@ -3,14 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	mensaje := otorgoPrestamo(23, true, 2, 120000)
-	fmt.Println(mensaje)
+	message := getLoan(23, true, 2, 120000)
+	fmt.Println(message)
 
 }
 
-func otorgoPrestamo(edad int, tieneEmpleo bool, antiguedad int, sueldo int) string {
-	if edad > 22 && tieneEmpleo && antiguedad > 1 {
-		if sueldo > 100000 {
+func getLoan(age int, haveJob bool, antique int, salary int) string {
+	if age > 22 && haveJob && antique > 1 {
+		if salary > 100000 {
 			return "Otrogo prestamo sin intereses"
 		}
 		return "Otrgo prestamo con intereses"

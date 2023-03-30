@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	nombre := "Sofia"
-	direccion := "Montevideo, Uruguay"
+	name := "Sofia"
+	address := "Montevideo, Uruguay"
 
-	fmt.Println("Mi nombre es", nombre, "y vivo en", direccion)
+	fmt.Println("Mi name es", name, "y vivo en", address)
 }

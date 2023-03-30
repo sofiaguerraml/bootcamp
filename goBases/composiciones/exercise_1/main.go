@@ -20,16 +20,16 @@ var Products = []Product{
 }
 
 func main() {
-	var nuevo Product
-	nuevo.GetAll()
-	nuevo = Product{4, "Cargador", 49.9, "para Mac", "Accesorio"}
-	nuevo.Save()
-	nuevo.GetAll()
+	var new Product
+	new.GetAll()
+	new = Product{4, "Cargador", 49.9, "para Mac", "Accesorio"}
+	new.Save()
+	new.GetAll()
 	product, err := GetById(4)
 	if err != nil {
 		fmt.Println("error")
 	} else {
-		fmt.Println(product)
+		printProduct(product)
 	}
 }
 
@@ -39,18 +39,26 @@ func (p Product) Save() []Product {
 }
 
 func (p Product) GetAll() {
-	var pr Product
-	for _, pr = range Products {
-		fmt.Println("\nId: ", pr.Id, "\nName: ", pr.Name, "\nPrice: ", pr.Price, "\nDescription: ", pr.Description, "\nCategory: ", pr.Category)
+	var product Product
+	for _, product = range Products {
+		printProduct(product)
 	}
 }
 
 func GetById(id int) (Product, error) {
-	var pr Product
-	for _, pr = range Products {
-		if pr.Id == id {
-			return pr, nil
+	var product Product
+	for _, product = range Products {
+		if product.Id == id {
+			return product, nil
 		}
 	}
-	return pr, errors.New("No hay un producto con ese id")
+	return product, errors.New("No hay un producto con ese id")
+}
+
+func printProduct(product Product) {
+	fmt.Println("\nId: ", product.Id,
+		"\nNombre: ", product.Name,
+		"\nPrecio: ", product.Price,
+		"\nDescripcion ", product.Description,
+		"\nCategoria: ", product.Category)
 }

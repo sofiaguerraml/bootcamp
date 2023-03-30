@@ -16,7 +16,7 @@ func (m myError) Error() string {
 func main() {
 	salary := 50
 	e := myError{"Error: el salario es menor a 10.000"}
-	err := esMenor(salary)
+	err := isLess(salary)
 	if err != nil {
 		if errors.Is(err, e) {
 			fmt.Println(e.msg)
@@ -27,7 +27,7 @@ func main() {
 
 }
 
-func esMenor(salary int) error {
+func isLess(salary int) error {
 	e := myError{}
 	if salary <= 10000 {
 		e.msg = "Error: el salario es menor a 10.000"

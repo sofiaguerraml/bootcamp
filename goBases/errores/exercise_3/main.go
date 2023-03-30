@@ -9,8 +9,7 @@ var err1 = errors.New("Error: el salario es menor a 10.000")
 
 func main() {
 	salary := 50
-	//e := Error()
-	err := esMenor(salary)
+	err := isLess(salary)
 	if err != nil {
 		if errors.Is(err, err1) {
 			fmt.Println(err)
@@ -20,7 +19,7 @@ func main() {
 	fmt.Println(salary)
 }
 
-func esMenor(salary int) error {
+func isLess(salary int) error {
 	if salary <= 10000 {
 		return err1
 	}

@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-	convertirMes(31)
+	convertMonth(31)
 
 }
 
-func convertirMes(numero int) {
+func convertMonth(numero int) {
 	switch numero {
 	case 1:
 		fmt.Println("Enero")

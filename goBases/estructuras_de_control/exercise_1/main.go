@@ -3,19 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	cantidadLetras := letrasDeUnaPalabra("Sofia")
-	fmt.Println(cantidadLetras)
-	imprimirLetras("Sofia")
+	numLetters := lettersOfWord("Sofia")
+	fmt.Println(numLetters)
+	printLetters("Sofia")
 }
 
-func letrasDeUnaPalabra(palabra string) int {
-	return len(palabra)
+func lettersOfWord(word string) int {
+	return len(word)
 }
 
-func imprimirLetras(palabra string) {
-	cantidadLetras := letrasDeUnaPalabra(palabra)
-	for i := 0; i < cantidadLetras; i++ {
-		letra := palabra[i]
+func printLetters(word string) {
+	numLetters := lettersOfWord(word)
+	for i := 0; i < numLetters; i++ {
+		letra := word[i]
 		fmt.Println(string(letra))
 	}
 }

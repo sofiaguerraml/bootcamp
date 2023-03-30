@@ -2,59 +2,59 @@ package main
 
 import "fmt"
 
-type Producto interface {
-	precio() float64
+type Product interface {
+	price() float64
 }
 
-type pequeno struct {
-	costo float64
+type small struct {
+	cost float64
 }
 
-type mediano struct {
-	costo float64
+type medium struct {
+	cost float64
 }
 
-type grande struct {
-	costo float64
+type big struct {
+	cost float64
 }
 
 const (
-	peqType = "PEQUENO"
-	medType = "MEDIANO"
-	graType = "GRANDE"
+	smallType = "PEQUENO"
+	medType   = "MEDIUM"
+	bigType   = "GRANDE"
 )
 
 func main() {
-	peq := factory(peqType, 10)
-	fmt.Println(peq.precio())
+	small := factory(smallType, 10)
+	fmt.Println(small.price())
 
 	med := factory(medType, 20)
-	fmt.Println(med.precio())
+	fmt.Println(med.price())
 
-	gra := factory(graType, 30)
-	fmt.Println(gra.precio())
+	big := factory(bigType, 30)
+	fmt.Println(big.price())
 }
 
-func (p pequeno) precio() float64 {
-	return p.costo
+func (p small) price() float64 {
+	return p.cost
 }
 
-func (m mediano) precio() float64 {
-	return m.costo * 1.03
+func (m medium) price() float64 {
+	return m.cost * 1.03
 }
 
-func (g grande) precio() float64 {
-	return g.costo*1.06 + 2500
+func (g big) price() float64 {
+	return g.cost*1.06 + 2500
 }
 
-func factory(productType string, precio float64) Producto {
+func factory(productType string, price float64) Product {
 	switch productType {
-	case peqType:
-		return pequeno{costo: precio}
+	case smallType:
+		return small{cost: price}
 	case medType:
-		return mediano{costo: precio}
-	case graType:
-		return grande{costo: precio}
+		return medium{cost: price}
+	case bigType:
+		return big{cost: price}
 	}
 	return nil
 }

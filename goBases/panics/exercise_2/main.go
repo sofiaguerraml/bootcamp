@@ -18,9 +18,9 @@ func read() {
 			fmt.Println(err)
 		}
 	}()
-	lectura, err := os.ReadFile("/Users/sguerra/Documents/Bootcamp/goBases/panics/exercise_2/customers.txt")
+	read, err := os.ReadFile("/Users/sguerra/Documents/Bootcamp/goBases/panics/exercise_2/customers.txt")
 	if err != nil {
 		panic("el archivo indicado no fue encontrado o está dañado")
 	}
-	fmt.Printf("%s \n", lectura)
+	fmt.Printf("%s \n", read)
 }

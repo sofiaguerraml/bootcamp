@@ -5,11 +5,11 @@ import (
 )
 
 type Costumer struct {
-	legajo    string
-	nombre    string
-	dni       int
-	telefono  int
-	domicilio string
+	file    string
+	name    string
+	dni     int
+	phone   int
+	address string
 }
 
 var Costumers = []Costumer{}
@@ -27,11 +27,10 @@ func main() {
 	registro("doc2", "Sofia", 12345, 99, "San Jose")
 	registro("doc3", "", 123475, 99, "Colonia")
 	registro("doc4", "Sofia", 7890, 19, "Maldonado")
-	fmt.Println(Costumers)
-
+	printAll()
 }
 
-func registro(legajo string, nombre string, dni int, telefono int, domicilio string) {
+func registro(file string, name string, dni int, phone int, address string) {
 	defer func() {
 		err := recover()
 		if err != nil {
@@ -42,18 +41,18 @@ func registro(legajo string, nombre string, dni int, telefono int, domicilio str
 	if existe(dni) {
 		panic("Error: el cliente ya existe")
 	}
-	nuevo := Costumer{
-		legajo:    legajo,
-		nombre:    nombre,
-		dni:       dni,
-		telefono:  telefono,
-		domicilio: domicilio,
+	new := Costumer{
+		file:    file,
+		name:    name,
+		dni:     dni,
+		phone:   phone,
+		address: address,
 	}
-	nulo := zero(nuevo)
+	nulo := zero(new)
 	if nulo {
 		panic("Error: uno o mas valores es nulo")
 	}
-	Costumers = append(Costumers, nuevo)
+	Costumers = append(Costumers, new)
 }
 
 func existe(dni int) bool {
@@ -65,9 +64,19 @@ func existe(dni int) bool {
 	return false
 }
 
-func zero(nuevo Costumer) bool {
-	if nuevo.legajo != "" && nuevo.nombre != "" && nuevo.dni != 0 && nuevo.telefono != 0 && nuevo.domicilio != "" {
+func zero(new Costumer) bool {
+	if new.file != "" && new.name != "" && new.dni != 0 && new.phone != 0 && new.address != "" {
 		return false
 	}
 	return true
+}
+
+func printAll() {
+	for _, costumer := range Costumers {
+		fmt.Println("\nLegajo:", costumer.file,
+			"\nNombre:", costumer.name,
+			"\nDNI:", costumer.dni,
+			"\nTelefono:", costumer.phone,
+			"\nDireccion:", costumer.address)
+	}
 }
